@@ -7,6 +7,7 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
@@ -16,6 +17,7 @@ import com.example.world.domain.Country;
 
 @Named
 @ApplicationScoped
+@Default
 public class InMemoryWorldDao implements WorldDao {
 	private Map<String, Country> countries;
 	private Map<Integer, City> cities;
