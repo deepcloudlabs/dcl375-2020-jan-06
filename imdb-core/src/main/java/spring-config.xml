@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean class="com.example.imdb.service.impl.SequenceServiceImpl"
+      lazy-init="true"
+      id="sequenceSrv"></bean>
+<bean class="com.example.imdb.service.impl.InMemoryMovieService"
+      init-method="populate"
+      autowire="byType"
+      id="movieSrv">
+</bean>
+
+</beans>
