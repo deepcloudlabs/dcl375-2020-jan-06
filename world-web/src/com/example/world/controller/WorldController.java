@@ -25,6 +25,7 @@ public class WorldController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String continent = 
 				request.getParameter("continent");
+		System.err.println(countryDao.getClass());
 		List<Country> countries = 
 			countryDao.findCountriesByContinent(
 					continent);
