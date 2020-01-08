@@ -15,11 +15,21 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<c:url var="url" value="/countries/list"></c:url>	
 <script type="text/javascript">
    window.onload = () => {
 	   let listBtn = document.querySelector("#list");
+	   let continentSelect = 
+		   document.querySelector("#continent");
 	   listBtn.addEventListener('click', () => {
-		   alert('Clicked!');
+		   let data = new FormData();
+		   let continent =
+    continentSelect.options[continentSelect.index].text		   
+		   data.append("continent",continent)
+		   fetch("${url}",{
+			   method : "POST",
+			   body : data
+		   }).then( html => alert(html) )
 	   })
    }
 </script>	
@@ -36,7 +46,8 @@
 				    value="/countries/search"></c:url>
 					<div class="form-group">
 						<label for="continent">Continent</label> <select
-							class="form-control" id="continent" name="continent">
+							class="form-control" id="continent" 
+							name="continent">
 							<c:forEach items="${continents}" var="cont">
 								<c:choose>
 									<c:when test="${param.continent eq cont}">
