@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +13,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
+import com.example.imdb.aop.Profiler;
 import com.example.imdb.domain.Director;
 import com.example.imdb.domain.Genre;
 import com.example.imdb.domain.Movie;
@@ -26,6 +28,7 @@ import com.example.imdb.service.SequenceService;
  */
 @Repository
 @Scope("singleton")
+@Profiler(unit = TimeUnit.MILLISECONDS)
 public class InMemoryMovieService implements MovieService {
 	private SequenceService sequenceSrv;
 	private Map<Integer, Movie> movies;
