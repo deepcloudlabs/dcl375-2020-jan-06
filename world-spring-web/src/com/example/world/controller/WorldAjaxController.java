@@ -16,26 +16,22 @@ import com.example.world.domain.Country;
 
 @Controller
 @RequestMapping("list")
-@RequestScope 
+@RequestScope
 public class WorldAjaxController {
-	@Autowired CountryDao countryDao;
+	@Autowired
+	CountryDao countryDao;
+
 	@GetMapping
 	public String home(Model model) {
-		Set<String> continents = 
-				countryDao.getAllContinents();
+		Set<String> continents = countryDao.getAllContinents();
 		model.addAttribute("continents", continents);
 		return "home";
 	}
+
 	@PostMapping
-	public String doSearch(Model model,String continent) {
-		List<Country> countries = 
-				countryDao.findCountriesByContinent(
-						continent);
-		System.err.println("continent="+continent);
+	public String doSearch(Model model, String continent) {
+		List<Country> countries = countryDao.findCountriesByContinent(continent);
 		model.addAttribute("countries", countries);
 		return "result";
 	}
 }
-
-
-

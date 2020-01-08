@@ -1,4 +1,5 @@
 package com.example.world.dao;
-public interface WorldDao extends CountryDao,CityDao {
+
+public interface WorldDao extends CountryDao, CityDao {
 
 }
