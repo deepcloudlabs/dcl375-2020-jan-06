@@ -19,17 +19,20 @@
 <script type="text/javascript">
    window.onload = () => {
 	   let listBtn = document.querySelector("#list");
+	   let result= document.querySelector("#result");
 	   let continentSelect = 
 		   document.querySelector("#continent");
 	   listBtn.addEventListener('click', () => {
-		   let data = new FormData();
-		   let continent =
-    continentSelect.options[continentSelect.index].text		   
-		   data.append("continent",continent)
+		   let data = new URLSearchParams("continent="+
+				   continentSelect.options[continentSelect.selectedIndex].text);		   
 		   fetch("${url}",{
 			   method : "POST",
 			   body : data
-		   }).then( html => alert(html) )
+		   })
+		   .then( res => res.text())
+		   .then( html => {
+			   result.innerHTML = html;
+		   } )
 	   })
    }
 </script>	
@@ -65,6 +68,7 @@
 					</div>
 			</div>
 		</div>
+	<div id="result"></div>
 	</div>
 </body>
 </html>
