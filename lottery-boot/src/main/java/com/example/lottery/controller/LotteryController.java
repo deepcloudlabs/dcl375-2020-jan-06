@@ -26,7 +26,6 @@ public class LotteryController {
 
     @GetMapping
     public String home(HttpSession session) {
-        System.err.println(session.getId());
         return "home";
     }
 
