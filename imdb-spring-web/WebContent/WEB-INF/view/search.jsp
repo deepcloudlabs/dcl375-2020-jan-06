@@ -54,13 +54,13 @@
 			</div>
 		</div>
 
-		<c:if test="${not empty movies}">
+		<c:if test="${not empty criteria.movies}">
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					<h3 class="panel-title">Search Result</h3>
 				</div>
 				<div class="panel-body">
-				    <util:table items="${movies}" 
+				    <util:table items="${criteria.movies}" 
 				                properties="title,year,imdb" 
 				                columns="Title,Year,IMDB"></util:table>
 
