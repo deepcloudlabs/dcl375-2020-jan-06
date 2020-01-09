@@ -9,10 +9,10 @@ import com.example.imdb.domain.Movie;
  *
  */
 public class CriteriaBean {
-	private boolean yearRangeSelected;
+	private boolean yearRangeSelected=true;
 	private Integer fromYear;
 	private Integer toYear;
-	private boolean genreSelected;
+	private boolean genreSelected=true;
 	private Integer genre;
 	private boolean directorSelected;
 	private Integer director;

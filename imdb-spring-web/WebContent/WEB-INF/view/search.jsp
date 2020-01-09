@@ -17,25 +17,31 @@
 				<h3 class="panel-title">Movie Search Panel</h3>
 			</div>
 			<div class="panel-body">
-				<form action="search" method="post">
+			    <c:url var="actionUrl"
+			           value="/movies/search"/>
+				<form action="${actionUrl}" method="post">
 					<div class="form-group">
 						<label for="from">From</label> <input class="form-control"
-							id="from" type="text" name="from" value="${param.from}" />
+							id="from" type="text" 
+							name="fromYear" 
+							value="${param.fromYear}" />
 					</div>
 					<div class="form-group">
 						<label for="to">To</label> <input class="form-control" id="to"
-							type="text" name="to" value="${param.to}" />
+							type="text" 
+							name="toYear" 
+							value="${param.toYear}" />
 					</div>
 					<div class="form-group">
 						<label for="genre">Genre</label> <select class="form-control"
 							id="genre" name="genre">
 							<c:forEach items="${genres}" var="genre">
 								<c:choose>
-									<c:when test="${genre.name eq param.genre}">
-										<option selected label="${genre.name}" value="${genre.name}">${genre.name}</option>
+									<c:when test="${genre.id eq param.genre}">
+										<option selected label="${genre.name}" value="${genre.id}">${genre.name}</option>
 									</c:when>
 									<c:otherwise>
-										<option label="${genre.name}" value="${genre.name}">${genre.name}</option>
+										<option label="${genre.name}" value="${genre.id}">${genre.name}</option>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>

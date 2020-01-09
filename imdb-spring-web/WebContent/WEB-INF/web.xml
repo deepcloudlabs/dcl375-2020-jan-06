@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="3.1">
 	<display-name>imdb-spring-web</display-name>
 	<welcome-file-list>
-		<welcome-file>???</welcome-file>
+		<welcome-file>movies/search</welcome-file>
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>imdb</servlet-name>
@@ -28,4 +28,21 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	<servlet>
+		<servlet-name>jsp</servlet-name>
+		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+		<init-param>
+			<param-name>fork</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>xpoweredBy</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>development</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
 </web-app>
