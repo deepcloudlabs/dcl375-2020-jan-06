@@ -11,11 +11,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  *
  */
 @SpringBootApplication
-@EnableWebMvc
-@ComponentScan(basePackages = {
-	"com.example.world.controller",
-	"com.example.world.dao"
-})
 public class WorldCountriesBackendApplication {
 
 	public static void main(String[] args) {

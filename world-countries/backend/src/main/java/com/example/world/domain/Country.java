@@ -21,6 +21,7 @@ public class Country {
     }
 
     public Country(String code, String name, String continent, int population, double surfaceArea, double gnp, int capital) {
+        this();
         this.code = code;
         this.name = name;
         this.continent = continent;

@@ -4688,7 +4688,6 @@ public class InMemoryWorldDao implements WorldDao {
                 390757.00, 5951.00, 4068));
     }
 
-
     @PostConstruct
     public void populate() {
         countries = new ConcurrentHashMap<>();
@@ -4703,8 +4702,7 @@ public class InMemoryWorldDao implements WorldDao {
         for (City city : cities.values()) {
             Country country = countries.get(city.getCountryCode());
             if (country == null) {
-                System.out.println("No such countryCode: "
-                        + city.getCountryCode());
+                System.err.println("No such countryCode: " + city.getCountryCode());
                 continue;
             }
             country.getCities().add(city);
